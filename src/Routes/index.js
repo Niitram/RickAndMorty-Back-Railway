@@ -14,7 +14,6 @@ let { favs } = require("../Utils/favs")
 
 router.get('/onsearch/:id', getCharById)
 router.get('/detail/:id', getCharDetail)
-
 router.get("/rickandmorty/login", login)
 router.post("/rickandmorty/login", postUser)
 router.post("/rickandmorty/fav", postFavs)
