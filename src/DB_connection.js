@@ -1,6 +1,6 @@
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_BDD } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_BDD, DB_DEPLOY } = process.env;
 const FavoriteModel = require("../src/models/Favorite")
 const UserModel = require("../src/models/User")
 
@@ -10,10 +10,18 @@ const UserModel = require("../src/models/User")
 // Recuerda pasarle la información de tu archivo '.env'.
 
 // URL ----> postgres://DB_USER:DB_PASSWORD@DB_HOST/rickandmorty
+
+
 const sequelize = new Sequelize(
-   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_BDD}`,
+   DB_DEPLOY,
    { logging: false, native: false }
 );
+
+
+/* const sequelize = new Sequelize(
+   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_BDD}`,
+   { logging: false, native: false }
+); */
 
 // EJERCICIO 05
 // Debajo de este comentario puedes ejecutar la función de los modelos.
